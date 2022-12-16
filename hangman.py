@@ -1,15 +1,18 @@
 import random
 from words import words
+import string
 
 #working
 def get_word(words):
     word = random.choice(words)
+    #Remove any hyphenated or two word combos
+    while '-' in word or ' ' in word:
+        word = random.choice(words)
+    return word.upper()
 
-    return word
-
-def guessing(word):
-    c_word = ""
-    p_guesses = ""
+def play(word):
+    word = get_word(words)
+    word_letters = set(word)
     lives = 11
 
 
@@ -25,4 +28,4 @@ def guessing(word):
 
 
 
-guessing(word)
+play(word)
