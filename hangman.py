@@ -10,22 +10,27 @@ def get_word(words):
         word = random.choice(words)
     return word.upper()
 
-def play(word):
+def play():
     word = get_word(words)
     word_letters = set(word)
+    alphabet = set(string.ascii.uppercase)
+    used_letters = set()
     lives = 11
 
+    user_letter = input('Guess a letter: ').upper()
 
-    for i in range(len(word)+11):
-        guess = input("Guess a letter: ")
+    if user_letter in word_letters:
+        used_letters.add(user_letter)
 
-        if guess in word:
-            g_word += guess
-            print(f"Your letter {guess}, is in the word")
-            print(f"you have {lives} left, anad you have used these letters {p_guesses}")
-            print(f"Your current word is: {c_word}")
+    else: lives = lives  - 1
 
 
 
+    print(f"Your letter {guess}, is in the word")
+    print(f"you have {lives} left, anad you have used these letters {p_guesses}")
+    print(f"Your current word is: {c_word}")
 
-play(word)
+
+
+
+play()
