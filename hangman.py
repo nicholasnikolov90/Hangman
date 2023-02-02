@@ -19,7 +19,7 @@ def play():
 
     user_letter = input('Guess a letter: ').upper()
 
-    if user_letter in word_letters:
+    if user_letter in word_letters - used_letters:
         used_letters.add(user_letter)
 
     else: lives = lives  - 1
